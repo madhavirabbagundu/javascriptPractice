@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "container"></div>
+</body>
+</html>
+<script>
+    fetch( "https://fakestoreapi.com/products/category/jewelery")
+    .then(function(res){
+        console.log(res)
+        return res.json()
+    })
+    .then(function(res){
+        console.log(res)
+        product(res)
+    })
+
+    function product(data){
+        data.forEach(function(e){
+            var div = document.createElement('div')
+        var title = document.createElement("p")
+        title.innerText = e.title
+        var image = document.createElement("img")
+        image.src = e.image
+        
+        div.append(title)
+       container.append(div)            
+        })
+    }
+</script>
